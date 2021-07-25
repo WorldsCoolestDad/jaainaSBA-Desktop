@@ -11,39 +11,43 @@ from jpacks.dbconnect import *
 #for x in mycursor:
 #    print(x)
 #income = Income("7/12/2021", "Iberia Bank", "Core Tech", "WM", "234.00")
-def min_screen():
-    ja.overrideredirect(0)
-    ja.iconify()
-   
 
 
+#Define window dimensions and calculate center of screen position
 ja = Tk()
-#print(ja.keys())
-width_of_window= 800
-height_of_window = 400
-screen_width = ja.winfo_screenwidth()
-screen_height = ja.winfo_screenheight()
-x_coor = (screen_width/2) - (width_of_window/2)
-y_coor = (screen_height/2) - (height_of_window/2)
-ja.geometry("%dx%d+%d+%d" % (width_of_window, height_of_window, x_coor, y_coor))
+ja.geometry("800x150+300+200")
+width_of_screen= ja.winfo_screenwidth()
+height_of_screen= ja.winfo_screenheight()
+window_width = 800
+window_height = 500
+x_coor = (width_of_screen/2) - (window_width/2)
+y_coor = (height_of_screen/2) - (window_height/2)
 ja.title("Ja'Aina-SBA")
 
-input_title_frame = Frame(ja)
-input_title_label=Label(input_title_frame, text="Record Input", padx=365, fg="white",font="Times 10", bg="grey")
-input_title_label.pack()
+#Display section title
+input_title_frame = Frame(ja, height=20,  bg="grey")
+input_title_label=Label(input_title_frame, text="Record Input", fg="white",font="Times 10", bg="grey")
+title_length= len(input_title_label['text'])
+pad_length = (window_width/2) - (title_length * 3)
+input_title_label.grid(row=0, column=0, padx=pad_length)
 input_title_frame.grid(row=0, column=0)
 
+#Display input fields headers
 input_headers_frame = Frame(ja)
-date_header = Label(input_headers_frame, text="Date", padx=50,fg="blue")
-date_header.grid(row=0, column=0)
-client_header = Label(input_headers_frame, text="Client", padx=50,fg="blue")
-client_header.grid(row=0, column=1)
-buyer_header = Label(input_headers_frame, text="Buyer", padx=50, fg="blue")
-buyer_header.grid(row=0, column=2)
-platform_header = Label(input_headers_frame, text="Platform", padx=50, fg="blue")
-platform_header.grid(row=0, column=3)
-pay_header = Label(input_headers_frame, text="Pay", padx=50,fg="blue")
-pay_header.grid(row=0, column=4)
+date_header = Label(input_headers_frame, text="Date",fg="blue")
+date_header.grid(row=0, column=0, padx=(0,100))
+client_header = Label(input_headers_frame, text="Client",fg="blue")
+client_header.grid(row=0, column=1, padx=(0,0))
+buyer_header = Label(input_headers_frame, text="Buyer", fg="blue")
+buyer_header.grid(row=0, column=2, padx=(100,50))
+platform_header = Label(input_headers_frame, text="Platform", fg="blue")
+platform_header.grid(row=0, column=3, padx=(50,100))
+pay_header = Label(input_headers_frame, text="Pay",fg="blue")
+pay_header.grid(row=0, column=4, padx=(0,80))
 input_headers_frame.grid(row=1, column=0)
+
+#display entry boxes
+entry_boxes_frame= Frame(ja, height=30, width=window_width- 10, bg="blue", relief=SOLID)
+entry_boxes_frame.grid(row=2,column=0)
 
 ja.mainloop()
