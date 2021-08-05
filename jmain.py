@@ -1,9 +1,8 @@
 from tkinter import *
-# from typing import Sized
-
-
-#mycursor.execute("CREATE TABLE CompletedJobs (jobid int PRIMARY KEY AUTO_INCREMENT, jobdate DATE, client VARCHAR(50),"
-#                "buyer VARCHAR(50), platform VARCHAR(25), pay DECIMAL(6,2))")#mycursor.execute("DESCRIBE CompletedJobs")
+# mycursor.execute("CREATE TABLE CompletedJobs (jobid int PRIMARY KEY AUTO_INCREMENT, jobdate DATE, client VARCHAR(50),"
+#                "buyer VARCHAR(50), platform VARCHAR(25), pay DECIMAL(6,2))")
+# 
+# mycursor.execute("DESCRIBE CompletedJobs")
 # for x in mycursor:
 #     print(x)
 # income = Income("7/12/2021", "Iberia Bank", "Core Tech", "WM", "234.00")
@@ -59,9 +58,9 @@ entry_boxes_frame.grid(row=2,column=0)
 
 #display buttons
 button_frame = Frame(ja)
-clear_button = Button(button_frame, text="Clear All", font="12", relief=RAISED)
+clear_button = Button(button_frame, text="Clear All", font= ("segoe script bold", 12), relief=RAISED)
 clear_button.grid(row=0, column=0, padx=(0,20), pady=(20,0))
-save_button = Button(button_frame, text="Save Record", font="12", relief=RAISED)
+save_button = Button(button_frame, text="Save Record", font=("segoe script bold", 12) ,relief=RAISED)
 save_button.grid(row=0, column=1, pady=(20,0))
 button_frame.grid(row=3, column=0)
 
